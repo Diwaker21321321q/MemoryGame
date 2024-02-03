@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* overflow-x: hidden; */
+}
+
+:root{
+    --bg-main:#464646;
+    --bg-card:#2D2727;
+    --border-color:#efc745;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+    background-color: var(--bg-card);
+}
+
+h1{
+    font-weight: bold;
+    color: aliceblue;
+}
+
+span{
+    color: var(--border-color);
+    font-weight: bold;
+}
+
+.card{
+position: relative;
+transition: all .4s linear;
+transform-style: preserve-3d;
+}
+
+.card,
+.back-card,
+.front-card{
+    height: 10rem;
+    width: 10rem;
+}
+
+.back-card,
+.front-card{
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+#card-section{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.front-card{
+    background: var(--border-color);
+    background-size: contain;
+    border-radius: .6rem;
+    box-shadow: rgba(149, 157, 165, 0.2);
+    padding: 2rem;
+}
+
+.back-card{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    box-shadow: rgba(149, 157, 165, 0.2);
+    padding: 2rem;
+    transform: rotateY(180deg);
+
+}
+
+.card-selected{
+    transform: rotateY(180deg);
+}
+
+.card-match .front-card{
+    background-color: var(--bg-main);
+}
